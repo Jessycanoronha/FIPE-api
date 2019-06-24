@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <img class="logo" src="../assets/img/logo_quanto_vale_meu_carro.png">
+    </div>
+
+    <div class="panel-body">
+      <div class="col-md-6">
+
+        <div class="page-header">
+          <h3>Procure um Veículo</h3>
+        </div>
+
+        <div class="col-md-12 form-group">
+          <select name="marca" id="marca" ng-model="marca" (change)="getModelos($event.target.value)"
+            class="form-control">
+            <option value="">Marca</option>
+            <option *ngFor="let marca of marca" value="{{marca.id}}">{{marca.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-12 form-group">
+          <select name="modelo" id="modelo" ng-model="modelo" (change)="getAnos($event.target.value)"
+            class="form-control">
+            <option value="">Modelo</option>
+            <option *ngFor="let modelo of modelo" value="{{modelo.id}}">{{modelo.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-12 form-group">
+          <select name="ano" id="ano" ng-model="ano" (change)="getResumo($event.target.value)" class="form-control">
+            <option value="">Ano</option>
+            <option *ngFor="let ano of ano" value="{{ano.id}}">{{ano.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-6" *ngIf="veiculo">
+        <div class="page-header">
+          <h3>Veículo encontrado <small>Referência: {{veiculo.referencia}}</small></h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">{{veiculo.marca}}</li>
+          <li class="list-group-item">{{veiculo.name}}</li>
+          <li class="list-group-item">{{veiculo.ano_modelo}}</li>
+          <li class="list-group-item">{{veiculo.combustivel}}</li>
+          <li class="list-group-item">{{veiculo.preco}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="panel-footer">
+      <p></p>
+    </div>
+
+  </div>
+</div>
